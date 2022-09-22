@@ -1,0 +1,37 @@
+Source: r-cran-tibble
+Maintainer: Debian R Packages Maintainers <r-pkg-team@alioth-lists.debian.net>
+Uploaders: Andreas Tille <tille@debian.org>
+Section: gnu-r
+Testsuite: autopkgtest-pkg-r
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               dh-r,
+               r-base-dev,
+               r-cran-ellipsis (>= 0.3.2),
+               r-cran-fansi,
+               r-cran-lifecycle (>= 1.0.0),
+               r-cran-magrittr,
+               r-cran-pillar (>= 1.6.2),
+               r-cran-pkgconfig,
+               r-cran-rlang (>= 0.4.3),
+               r-cran-vctrs (>= 0.3.8)
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/r-pkg-team/r-cran-tibble
+Vcs-Git: https://salsa.debian.org/r-pkg-team/r-cran-tibble.git
+Homepage: https://cran.r-project.org/package=tibble
+Rules-Requires-Root: no
+
+Package: r-cran-tibble
+Architecture: any
+Depends: ${R:Depends},
+         ${shlibs:Depends},
+         ${misc:Depends}
+Recommends: ${R:Recommends}
+Suggests: ${R:Suggests}
+Description: GNU R Simple Data Frames
+ This GNU R package provides a 'tbl_df' class that offers better checking
+ and printing capabilities than traditional data frames.
+ .
+ Tibbles are a modern take on data frames. They keep the features that have
+ stood the test of time, and drop the features that used to be convenient but
+ are now frustrating (i.e. converting character vectors to factors).

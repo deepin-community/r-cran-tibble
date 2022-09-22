@@ -1,0 +1,24 @@
+Description: Disable formattable test
+ formattable is a new test dependency and it is not available in the archive
+ yet. Please enable this test again as soon as it is available.
+Author: Lucas Kanashiro <lucas.kanashiro@canonical.com>
+Forwarded: not-needed
+Last-Updated: 2020-09-09
+Bug-Debian: https://bugs.debian.org/970001
+
+--- a/tests/testthat/test-tribble.R
++++ b/tests/testthat/test-tribble.R
+@@ -176,13 +176,6 @@
+   )
+ })
+ 
+-test_that("formattable (#785)", {
+-  expect_equal(
+-    tribble(~ x, formattable::formattable(1.0, 1), formattable::formattable(2.0, 1)),
+-    tibble(x = formattable::formattable(1:2 + 0, 1))
+-  )
+-})
+-
+ # ---- frame_matrix() ----
+ 
+ test_that("frame_matrix constructs a matrix as expected", {

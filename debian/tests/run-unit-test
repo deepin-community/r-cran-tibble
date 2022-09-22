@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+oname=tibble
+pkg=r-cran-`echo $oname | tr [A-Z] [a-z]`
+
+if [ "$AUTOPKGTEST_TMP" = "" ] ; then
+  AUTOPKGTEST_TMP=`mktemp -d /tmp/${pkg}-test.XXXXXX`
+fi
+cd $AUTOPKGTEST_TMP
+cp -a /usr/share/doc/${pkg}/tests/* $AUTOPKGTEST_TMP
+find . -name "*.gz" -exec gunzip \{\} \;
+LC_ALL=C.UTF-8 R --no-save < testthat.R
+rm -fr $AUTOPKGTEST_TMP/*
